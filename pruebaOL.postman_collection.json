@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "b26d16e0-8832-465c-8c15-0408471358dc",
+		"name": "pruebaOL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11281367",
+		"_collection_link": "https://winter-flare-78653.postman.co/workspace/New-Team-Workspace~894a4b38-72f5-4177-87ba-8585baed0eb4/collection/11281367-b26d16e0-8832-465c-8c15-0408471358dc?action=share&source=collection_link&creator=11281367"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@example.com\",\r\n    \"password\": \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/comerciantes",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMzExNTksImV4cCI6MTczNjAzNDc1OX0.jOTayKgD5-8vU9-W1tEpc0z_bLhuCTL6A-7iBT7lyFg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreRazonSocial\": \"Comerciante Ejemplo\",\r\n    \"departamentoId\": 1,\r\n    \"municipioId\": 2,\r\n    \"telefono\": \"1234567890\",\r\n    \"correoElectronico\": \"ejemplo@correo.com\",\r\n    \"estadoId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/comerciantes",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMzExNTksImV4cCI6MTczNjAzNDc1OX0.jOTayKgD5-8vU9-W1tEpc0z_bLhuCTL6A-7iBT7lyFg",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/comerciantes?page=2&size=5",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMjQ4ODEsImV4cCI6MTczNjAyODQ4MX0.8t1YLo6JKvBJV9gcfWTvP29GpIcPGdKBTTRAHPhmV9g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/comerciantes?page=2&size=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						},
+						{
+							"key": "size",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/comerciantes/74",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODI0OTAsImV4cCI6MTczNjA4NjA5MH0.9863YY3oTsi-bSgRnwgx98bY8L7U8GR9CftJx_Q_RJs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/comerciantes/72",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes",
+						"72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/comerciantes/21",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMjQ4ODEsImV4cCI6MTczNjAyODQ4MX0.8t1YLo6JKvBJV9gcfWTvP29GpIcPGdKBTTRAHPhmV9g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombreRazonSocial\": \"Comerciante Actualizado\",\r\n    \"departamentoId\": 1,\r\n    \"municipioId\": 2,\r\n    \"telefono\": \"0987654321\",\r\n    \"correoElectronico\": \"actualizado@correo.com\",\r\n    \"estadoId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/comerciantes/21",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/comerciantes/74",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMjQ4ODEsImV4cCI6MTczNjAyODQ4MX0.8t1YLo6JKvBJV9gcfWTvP29GpIcPGdKBTTRAHPhmV9g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/comerciantes/74",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes",
+						"74"
+					],
+					"query": [
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwMjQ4ODEsImV4cCI6MTczNjAyODQ4MX0.8t1YLo6JKvBJV9gcfWTvP29GpIcPGdKBTTRAHPhmV9g",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/establecimientos",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODI0OTAsImV4cCI6MTczNjA4NjA5MH0.9863YY3oTsi-bSgRnwgx98bY8L7U8GR9CftJx_Q_RJs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comercianteId\": 24,\r\n    \"nombreEstablecimiento\": \"Tienda XYZ\",\r\n    \"ingresos\": 5000000.00,\r\n    \"numeroEmpleados\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/establecimientos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"establecimientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/establecimientos/26",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODI0OTAsImV4cCI6MTczNjA4NjA5MH0.9863YY3oTsi-bSgRnwgx98bY8L7U8GR9CftJx_Q_RJs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comercianteId\": 1,\r\n    \"nombreEstablecimiento\": \"Tienda Actualizada3\",\r\n    \"ingresos\": 7000000.00,\r\n    \"numeroEmpleados\": 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/establecimientos/26",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"establecimientos",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/establecimientos/comerciante/26",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODI0OTAsImV4cCI6MTczNjA4NjA5MH0.9863YY3oTsi-bSgRnwgx98bY8L7U8GR9CftJx_Q_RJs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/establecimientos/comerciante/26",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"establecimientos",
+						"comerciante",
+						"26"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/establecimientos/42",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODI0OTAsImV4cCI6MTczNjA4NjA5MH0.9863YY3oTsi-bSgRnwgx98bY8L7U8GR9CftJx_Q_RJs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/establecimientos/42",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"establecimientos",
+						"42"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/comerciantes/reporte-activos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODY1NjUsImV4cCI6MTczNjA5MDE2NX0.ouHcpP-15ouc8OHl55Occo9VHAgFewSTkX0dR2yDOq0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/comerciantes/reporte-activos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes",
+						"reporte-activos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/api/comerciantes/reporte-comerciante/62",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBleGFtcGxlLmNvbSIsInJvbGUiOiJST0xFX0FETUlOSVNUUkFET1IiLCJpYXQiOjE3MzYwODY1NjUsImV4cCI6MTczNjA5MDE2NX0.ouHcpP-15ouc8OHl55Occo9VHAgFewSTkX0dR2yDOq0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/comerciantes/reporte-comerciante/62",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comerciantes",
+						"reporte-comerciante",
+						"62"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

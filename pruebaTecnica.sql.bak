@@ -141,39 +141,35 @@ INSERT INTO Municipio (id, DEPARTAMENTO_ID , NOMBRE) VALUES (8, 4, 'Barranquilla
 INSERT INTO Municipio (id, DEPARTAMENTO_ID , NOMBRE) VALUES (9, 4, 'Soledad');
 INSERT INTO Municipio (id, DEPARTAMENTO_ID , NOMBRE) VALUES (10, 5, 'Bucaramanga');
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Comerciante 1', 'Antioquia', 'Medellín', '123456789', 'comerciante1@mail.com', 2);
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO , telefono, correo_electronico, id_estado)
+VALUES ( 'Postobon S.A', 1, 1, '98541789', 'postobon@mail.com', 1);
 
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES ( 'Alpina S.A', 2, 2, '3109876543', 'alpina@mail.com', 2);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Postobon S.A', 'Cali', 'Valle', '98541789', 'postobon@mail.com', 1);
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES ( 'Grupo Éxito', 3, 3, '3176549870', 'grupo_exito@mail.com', 3);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Alpina S.A', 'Antioquia', 'Medellín', '3109876543', 'alpina@mail.com', 2);
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES ( 'Droguerías Colsubsidio', 4, 4, '3125671234', 'colsubsidio@mail.com', 4);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Grupo Éxito', 'Bogotá', 'Bogotá', '3176549870', 'grupo_exito@mail.com', 3);
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES ( 'Carvajal S.A', 5, 5, '3147895632', 'carvajal@mail.com', 5);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Droguerías Colsubsidio', 'Cundinamarca', 'Soacha', '3125671234', 'colsubsidio@mail.com', 4);
+INSERT INTO Comerciante ( nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES ( 'Bavaria', 6, 6, '3219876540', 'bavaria@mail.com', 2);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Carvajal S.A', 'Valle del Cauca', 'Cali', '3147895632', 'carvajal@mail.com', 5);
+INSERT INTO Comerciante (id_comerciante, nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES (seq_comerciante.NEXTVAL, 'Tecnoglass', 7, 7, '3118765432', 'tecnoglass@mail.com', 1);
 
-INSERT INTO Comerciante ( nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES ( 'Bavaria', 'Antioquia', 'Medellín', '3219876540', 'bavaria@mail.com', 2);
+INSERT INTO Comerciante (id_comerciante, nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES (seq_comerciante.NEXTVAL, 'Ramo S.A', 7, 7, '3148765432', 'ramo@mail.com', 3);
 
-INSERT INTO Comerciante (id_comerciante, nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES (seq_comerciante.NEXTVAL, 'Tecnoglass', 'Atlántico', 'Barranquilla', '3118765432', 'tecnoglass@mail.com', 1);
+INSERT INTO Comerciante (id_comerciante, nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES (seq_comerciante.NEXTVAL, 'Familia S.A', 8, 8, '3138765432', 'familia@mail.com', 4);
 
-INSERT INTO Comerciante (id_comerciante, nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES (seq_comerciante.NEXTVAL, 'Ramo S.A', 'Boyacá', 'Tunja', '3148765432', 'ramo@mail.com', 3);
-
-INSERT INTO Comerciante (id_comerciante, nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES (seq_comerciante.NEXTVAL, 'Familia S.A', 'Santander', 'Bucaramanga', '3138765432', 'familia@mail.com', 4);
-
-INSERT INTO Comerciante (id_comerciante, nombre_razon_social, departamento, municipio, telefono, correo_electronico, id_estado)
-VALUES (seq_comerciante.NEXTVAL, 'Colanta', 'Antioquia', 'Medellín', '3109871234', 'colanta@mail.com', 1);
+INSERT INTO Comerciante (id_comerciante, nombre_razon_social, ID_DEPARTAMENTO , ID_MUNICIPIO, telefono, correo_electronico, id_estado)
+VALUES (seq_comerciante.NEXTVAL, 'Colanta', 9, 9, '3109871234', 'colanta@mail.com', 1);
 
 
 -- Insertar Establecimientos
@@ -321,11 +317,10 @@ END pkg_comerciante;
 CREATE OR REPLACE PROCEDURE COMERCIO.actualizar(
         p_id IN NUMBER,
         p_nombre IN VARCHAR2,
-        p_departamento IN VARCHAR2,
-        p_municipio IN VARCHAR2,
+        p_departamento IN NUMBER ,
+        p_municipio IN NUMBER ,
         p_telefono IN VARCHAR2 DEFAULT NULL,
         p_correo IN VARCHAR2 DEFAULT NULL,
-        p_fecha_registro IN DATE,
         p_estado IN NUMBER,
         v_codigo_error OUT NUMBER,
         v_mensaje_error OUT VARCHAR2
@@ -333,11 +328,10 @@ CREATE OR REPLACE PROCEDURE COMERCIO.actualizar(
     BEGIN
         UPDATE Comerciante
         SET nombre_razon_social = p_nombre,
-            departamento = p_departamento,
-            municipio = p_municipio,
+            ID_DEPARTAMENTO = p_departamento,
+            ID_MUNICIPIO  = p_municipio,
             telefono = p_telefono,
             correo_electronico = p_correo,
-            fecha_registro = p_fecha_registro,
             id_estado = p_estado
         WHERE id_comerciante = p_id;
 
@@ -349,6 +343,7 @@ CREATE OR REPLACE PROCEDURE COMERCIO.actualizar(
             v_codigo_error := SQLCODE;
             v_mensaje_error := SQLERRM;
     END actualizar;
+
 	
 	
 
@@ -365,7 +360,7 @@ CREATE OR REPLACE PROCEDURE COMERCIO.crear(
         v_mensaje_error OUT VARCHAR2
     ) IS
     BEGIN
-        INSERT INTO Comerciante (ID_COMERCIANTE ,nombre_razon_social, departamento, municipio, telefono, correo_electronico, fecha_registro, id_estado)
+        INSERT INTO Comerciante (ID_COMERCIANTE ,nombre_razon_social, id_departamento, id_municipio, telefono, correo_electronico, fecha_registro, id_estado)
         VALUES (seq_comerciante.NEXTVAL , p_nombre, p_departamento, p_municipio, p_telefono, p_correo, p_fecha_registro, p_estado);
 
         v_codigo_error := 0;
@@ -401,33 +396,44 @@ CREATE OR REPLACE PROCEDURE COMERCIO.eliminar(
 --FUNCION CONSULTAR 
 
 CREATE OR REPLACE FUNCTION COMERCIO.consultar(
-        p_nombre IN VARCHAR2 DEFAULT NULL,
-        p_municipio IN VARCHAR2 DEFAULT NULL,
-        p_fecha_registro IN DATE DEFAULT NULL,
-        p_estado IN NUMBER DEFAULT NULL,
-        p_pagina IN NUMBER DEFAULT 1,
-        p_tamano_pagina IN NUMBER DEFAULT 10
-    ) RETURN SYS_REFCURSOR IS
- v_cursor SYS_REFCURSOR;
-        v_offset NUMBER := (p_pagina - 1) * p_tamano_pagina;
-    BEGIN
-        OPEN v_cursor FOR
-        SELECT c.nombre_razon_social, c.municipio
-        FROM Comerciante c
-        LEFT JOIN Estado e ON c.id_estado = e.id_estado
-        WHERE (p_nombre IS NULL OR c.nombre_razon_social LIKE '%' || p_nombre || '%')
-          AND (p_municipio IS NULL OR c.municipio = p_municipio)
-          AND (p_fecha_registro IS NULL OR c.fecha_registro = p_fecha_registro)
-          AND (p_estado IS NULL OR c.id_estado = p_estado)
-        ORDER BY c.fecha_registro DESC
-        OFFSET v_offset ROWS FETCH NEXT p_tamano_pagina ROWS ONLY;
+    p_nombre IN VARCHAR2 DEFAULT NULL,
+    p_municipio IN NUMBER DEFAULT NULL,
+    p_fecha_registro IN DATE DEFAULT NULL,
+    p_estado IN NUMBER DEFAULT NULL,
+    p_pagina IN NUMBER DEFAULT 1,
+    p_tamano_pagina IN NUMBER DEFAULT 10
+) RETURN SYS_REFCURSOR IS
+    v_cursor SYS_REFCURSOR;
+    v_offset NUMBER := (p_pagina - 1) * p_tamano_pagina;
+BEGIN
+    OPEN v_cursor FOR
+    SELECT 
+        c.ID_COMERCIANTE,
+        c.NOMBRE_RAZON_SOCIAL,
+        d.NOMBRE AS DEPARTAMENTO,
+        m.NOMBRE AS MUNICIPIO,
+        c.TELEFONO,
+        c.CORREO_ELECTRONICO,
+        TO_CHAR(c.FECHA_REGISTRO, 'YYYY-MM-DD') AS FECHA_REGISTRO,
+        c.ID_ESTADO
+    FROM Comerciante c
+    JOIN Departamento d ON c.ID_DEPARTAMENTO = d.ID
+    JOIN Municipio m ON c.ID_MUNICIPIO = m.ID
+    LEFT JOIN Estado e ON c.ID_ESTADO = e.ID_ESTADO
+    WHERE (p_nombre IS NULL OR c.NOMBRE_RAZON_SOCIAL LIKE '%' || p_nombre || '%')
+      AND (p_municipio IS NULL OR c.ID_MUNICIPIO = p_municipio)
+      AND (p_fecha_registro IS NULL OR c.FECHA_REGISTRO = p_fecha_registro)
+      AND (p_estado IS NULL OR c.ID_ESTADO = p_estado)
+    ORDER BY c.FECHA_REGISTRO DESC
+    OFFSET v_offset ROWS FETCH NEXT p_tamano_pagina ROWS ONLY;
 
-        RETURN v_cursor;
+    RETURN v_cursor;
 
-    EXCEPTION
-        WHEN OTHERS THEN
-            RETURN NULL;
-    END consultar;
+EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Error en la función COMERCIO.consultar: ' || SQLERRM);
+        RETURN NULL;
+END consultar;
 	
 	
 	
@@ -447,7 +453,7 @@ BEGIN
     WHERE e.id_comerciante = p_id;
 
 
-    SELECT c.nombre_razon_social || ', ' || c.departamento || ', ' || c.municipio || ', ' ||
+    SELECT c.nombre_razon_social || ', ' || c.id_departamento || ', ' || c.id_municipio || ', ' ||
            c.telefono || ', ' || c.correo_electronico || ', ' || TO_CHAR(c.fecha_registro, 'YYYY-MM-DD') || ', ' ||
            e.descripcion || ', Total Activos: ' || TO_CHAR(v_total_activos) || ', Empleados: ' || TO_CHAR(v_cantidad_empleados)
     INTO v_respuesta
@@ -459,7 +465,7 @@ BEGIN
 
 EXCEPTION
     WHEN NO_DATA_FOUND THEN
-        RETURN 'No se encontró un comerciante con el ID proporcionado.';
+        RETURN NULL;
     WHEN OTHERS THEN
         RETURN 'Error: ' || SQLERRM;
 END consultar_por_id_comerciante;
@@ -494,131 +500,3 @@ BEGIN
 END obtener_comerciantes_activos;
 
 
--- probar consultar
-
-DECLARE
-    v_cursor SYS_REFCURSOR;
-    v_nombre_razon_social VARCHAR2(100);
-    v_municipio VARCHAR2(50);
-BEGIN
-    -- Llamar a la función
-    v_cursor := COMERCIO.consultar(
-        p_nombre => 'Postobon', 
-        p_municipio => 'Valle',
-        p_fecha_registro => NULL, 
-        p_estado => 1, 
-        p_pagina => 1, 
-        p_tamano_pagina => 5
-    );
-
-    -- Iterar sobre el cursor
-    LOOP
-        FETCH v_cursor INTO v_nombre_razon_social, v_municipio;
-        EXIT WHEN v_cursor%NOTFOUND;
-
-        -- Imprimir resultados
-        DBMS_OUTPUT.PUT_LINE('Nombre: ' || v_nombre_razon_social || ', Municipio: ' || v_municipio);
-    END LOOP;
-
-    -- Cerrar el cursor
-    CLOSE v_cursor;
-END;
-
-
-
--- probar consultar por id
-
-SELECT COMERCIO.consultar_por_id_comerciante(21) AS resultado
-FROM dual;
-
-
---probar actualizar 
-
-DECLARE
-    v_codigo_error NUMBER;
-    v_mensaje_error VARCHAR2(4000);
-BEGIN
-    COMERCIO.actualizar(
-        p_id => 21,
-        p_nombre => 'Postobon Actualizado4',
-        p_departamento => 'Valle del Cauca',
-        p_municipio => 'Cali',
-        p_telefono => '3109876543',
-        p_correo => 'postobon_actualizado@mail.com',
-        p_fecha_registro => SYSDATE,
-        p_estado => 1,
-        v_codigo_error => v_codigo_error,
-        v_mensaje_error => v_mensaje_error
-    );
-
-    DBMS_OUTPUT.PUT_LINE('Código Error: ' || v_codigo_error || ', Mensaje: ' || v_mensaje_error);
-END;
-
--- probar crear
-
-DECLARE
-    v_codigo_error NUMBER;
-    v_mensaje_error VARCHAR2(4000);
-BEGIN
-    COMERCIO.crear(
-        p_nombre => 'Nuevo Comerciante',
-        p_departamento => 'Antioquia',
-        p_municipio => 'Medellín',
-        p_telefono => '3001234567',
-        p_correo => 'nuevo@mail.com',
-        p_fecha_registro => SYSDATE,
-        p_estado => 2,
-        v_codigo_error => v_codigo_error,
-        v_mensaje_error => v_mensaje_error
-    );
-
-    DBMS_OUTPUT.PUT_LINE('Código Error: ' || v_codigo_error || ', Mensaje: ' || v_mensaje_error);
-END;
-
---probar eliminar 
-
-DECLARE
-    v_codigo_error NUMBER;
-    v_mensaje_error VARCHAR2(4000);
-BEGIN
-    COMERCIO.eliminar(
-        p_id => 33,
-        v_codigo_error => v_codigo_error,
-        v_mensaje_error => v_mensaje_error
-    );
-
-    DBMS_OUTPUT.PUT_LINE('Código Error: ' || v_codigo_error || ', Mensaje: ' || v_mensaje_error);
-END;
-
-
---probar reporte 
-
-DECLARE
-    v_cursor SYS_REFCURSOR;
-    v_nombre_razon_social VARCHAR2(100);
-    v_departamento VARCHAR2(50);
-    v_municipio VARCHAR2(50);
-    v_telefono VARCHAR2(15);
-    v_correo_electronico VARCHAR2(100);
-    v_fecha_registro DATE;
-    v_estado VARCHAR2(20);
-    v_cantidad_establecimientos NUMBER;
-    v_total_activos NUMBER;
-    v_cantidad_empleados NUMBER;
-BEGIN
-    v_cursor := obtener_comerciantes_activos;
-
-    LOOP
-        FETCH v_cursor INTO 
-            v_nombre_razon_social, v_departamento, v_municipio, 
-            v_telefono, v_correo_electronico, v_fecha_registro, 
-            v_estado, v_cantidad_establecimientos, v_total_activos, 
-            v_cantidad_empleados;
-
-        EXIT WHEN v_cursor%NOTFOUND;
-
-        DBMS_OUTPUT.PUT_LINE('Nombre: ' || v_nombre_razon_social || ', Establecimientos: ' || v_cantidad_establecimientos);
-    END LOOP;
-
-    CLOSE v_cursor;
-END;
