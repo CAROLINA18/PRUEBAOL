@@ -155,4 +155,18 @@ public class ComercianteController {
                     .body("Error al generar o guardar el archivo: " + e.getMessage());
         }
     }
+    
+    
+    @GetMapping("/reporte-comerciante/{id}")
+    @PreAuthorize("hasRole('ADMINISTRADOR')")
+    public ResponseEntity<?> generarReporteComerciante(@PathVariable Long id) {
+        try {
+            String pdfPath = comercianteService.generarPdfComerciante(id);
+
+            return ResponseEntity.ok("PDF generado correctamente: " + pdfPath);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Error al generar el PDF: " + e.getMessage());
+        }
+    }
 }
